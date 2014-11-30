@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import os
+
 # Scrapy settings for JobScrape project
 #
 # For simplicity, this file contains only the most important settings by
@@ -18,13 +20,8 @@ NEWSPIDER_MODULE = 'JobScrape.spiders'
 
 ITEM_PIPELINES = {
     'JobScrape.pipelines.ValidatorPipeline': 0,
-    'JobScrape.pipelines.JsonWriterPipeline': 1,
+    # 'JobScrape.pipelines.JsonWriterPipeline': 1,
     'JobScrape.pipelines.StoreDataPipeline':2,
 }
 
-DATABASE = {'drivername': 'postgres',
-            'host': 'localhost',
-            'port': '5432',
-            'username': 'mjmitchener',
-            'password': 'root',
-            'database': 'jobscraper'}
+DATABASE = eval(os.environ['DATABASE'])

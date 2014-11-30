@@ -19,7 +19,7 @@ class AcaciaSpider(scrapy.Spider):
         for sel in response.xpath('//div[@class="entry-content"]/ul/li'):
             item = JobscrapeItem()
             item['company'] = 'Acacia'
-            item['job'] = sel.xpath('a/text()').extract()[0]
+            item['title'] = sel.xpath('a/text()').extract()[0]
             item['link'] = sel.xpath('a/@href').extract()[0]
             item['location'] = sel.xpath('text()').extract()[0]
             yield item

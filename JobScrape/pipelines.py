@@ -22,8 +22,11 @@ class DuplicatePipeline(object):
             return item
 
 class ValidatorPipeline(object):
+
+    keyWords = ['Salesforce','SFDC', 'Salesforce.com']
+
     def process_item(self, item, spider):
-        if "Senior" in item['job']:
+        if "Salesforce" in item['title']:
             return item
         else:
             raise DropItem("Senior jobs not allowed: %s" % item)

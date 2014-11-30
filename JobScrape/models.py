@@ -23,6 +23,6 @@ class Jobs(DeclarativeBase):
 
     id = Column(Integer, primary_key=True)
     title    = Column('title', String)
-    link     = Column('link', String, nullable=True)
+    link     = Column('link', String, nullable=True, unique=True)
     location = Column('location', String, nullable=True)
     company  = Column('company', String, nullable=True)
